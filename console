@@ -1,0 +1,104 @@
+
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> npm install express
+
+added 62 packages, and audited 63 packages in 7s
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend>
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> node server.js
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> ^C
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> node server.js
+C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend\app.js:7
+app.use("/trains",trainRoutes)
+^
+
+ReferenceError: Cannot access 'app' before initialization
+    at Object.<anonymous> (C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend\app.js:7:1)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:119:18)
+    at Object.<anonymous> (C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend\server.js:5:13)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+
+Node.js v18.18.0
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> node server.js
+C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend\app.js:7
+app.use("/trains",trainRoutes)
+^
+
+ReferenceError: Cannot access 'app' before initialization
+    at Object.<anonymous> (C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend\app.js:7:1)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+    at Module.load (node:internal/modules/cjs/loader:1119:32)
+    at Module._load (node:internal/modules/cjs/loader:960:12)
+    at Module.require (node:internal/modules/cjs/loader:1143:19)
+    at require (node:internal/modules/cjs/helpers:119:18)
+    at Object.<anonymous> (C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend\server.js:5:13)
+    at Module._compile (node:internal/modules/cjs/loader:1256:14)
+    at Module._extensions..js (node:internal/modules/cjs/loader:1310:10)
+
+Node.js v18.18.0
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> node server.js
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> ^C
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> node server.js
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend>
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> git remote add origin git@github.com:jaszczurga/nodeUG.git
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> git branch -M main
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> git push -u origin main
+error: src refspec main does not match any
+error: failed to push some refs to 'github.com:jaszczurga/nodeUG.git'
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> git push -u origin main
+Enumerating objects: 584, done.
+Counting objects: 100% (584/584), done.
+Delta compression using up to 12 threads
+Compressing objects: 100% (551/551), done.
+Writing objects: 100% (584/584), 672.77 KiB | 1.23 MiB/s, done.
+Total 584 (delta 102), reused 0 (delta 0), pack-reused 0
+remote: Resolving deltas: 100% (102/102), done.
+To github.com:jaszczurga/nodeUG.git
+ * [new branch]      main -> main
+branch 'main' set up to track 'origin/main'.
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> node server.js
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> node server.js
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> node server.js
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> npm i -g nodemon
+
+added 33 packages in 6s
+
+3 packages are looking for funding
+  run `npm fund` for details
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> ^C
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> nodemon server.js
+[nodemon] 3.0.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node server.js`
+[nodemon] restarting due to changes...
+[nodemon] restarting due to changes...
+[nodemon] restarting due to changes...
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> npm i morgan
+
+added 5 packages, and audited 68 packages in 3s
+
+11 packages are looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend> nodemon server.js
+[nodemon] 3.0.1
+[nodemon] to restart at any time, enter `rs`
+[nodemon] watching path(s): *.*
+[nodemon] watching extensions: js,mjs,cjs,json
+[nodemon] starting `node server.js`
+::1 - - [17/Nov/2023:12:27:16 +0000] "DELETE /trains/20 HTTP/1.1" 200 45 "-" "PostmanRuntime/7.35.0"
+::1 - - [17/Nov/2023:12:27:24 +0000] "GET /trains/20 HTTP/1.1" 200 38 "-" "PostmanRuntime/7.35.0"
+PS C:\Users\goska\OneDrive - University of Gdansk (for Students)\aplikacje z darkiem\backend>
