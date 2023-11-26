@@ -13,6 +13,7 @@ const server = http.createServer(app)
 //odpalam serwer
 server.listen(port)
 
+
 // create -> POST /trains -> utworzenie pociagu nowego
 // read -> GET /trains/100 -> info o pocaigu o nimerze 100
 // update -> PUT /trains/100 -> zmiana pocaigu o numerze 100

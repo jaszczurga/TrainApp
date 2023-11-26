@@ -29,7 +29,7 @@ router.delete("/:id",(req,res,next)=>{
     res.status(200).json({wiadomosc: "usuniecie danych o numerze "+id})
 })
 
-
+//CRUDZIK
 // create -> POST /trains -> utworzenie pociagu nowego
 // read -> GET /trains/100 -> info o pocaigu o nimerze 100
 // update -> PUT /trains/100 -> zmiana pocaigu o numerze 100
