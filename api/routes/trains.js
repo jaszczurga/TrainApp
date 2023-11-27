@@ -1,15 +1,22 @@
 const express = require("express")
 
 //importuje model pociagu
-const Train = require("../models/train")
+const Train = require("../models/trains")
 
 //wyciagam Router
 const router = express.Router()
 
 router.get("/",(req,res,next)=>{
-    res.status(200).json({
-        wiadomosc: "lista wszystkich pociagow"
-    })
+    Train.find()
+        .then(result => {
+            res.status(200).json({
+                wiadomosc: "lista wszystkich pociagow",
+                info: result
+            })
+        })
+        .catch(error => {
+            res.status(500).json(error)
+        })
 })
 
 router.post("/",(req,res,next)=>{
@@ -32,16 +39,54 @@ router.post("/",(req,res,next)=>{
 
 router.get("/:id",(req,res,next)=>{
     const id = req.params.id
-    res.status(200).json({wiadomosc: "szczegoly o numerze "+id})
+
+    Train.findById(id)
+        .then(result => {
+            res.status(200).json({
+                wiadomosc: "szczegoly o numerze "+id,
+                info: result
+            })
+        })
+        .catch(error => {
+            res.status(500).json(error)
+        })
 })
 
 router.put("/:id",(req,res,next)=>{
     const id = req.params.id
-    res.status(200).json({wiadomosc: "zmiana danych o numerze "+id})
+
+    Train.findByIdAndUpdate(id,{
+        name : req.body.name,
+        from : req.body.from,
+        to : req.body.to
+    })
+        .then(result => {
+            res.status(200).json({
+                wiadomosc: "zmiana danych o numerze "+id,
+                info: result
+            })
+        })
+        .catch(error => {
+            res.status(500).json(error)
+        })
 })
 router.delete("/:id",(req,res,next)=>{
     const id = req.params.id
-    res.status(200).json({wiadomosc: "usuniecie danych o numerze "+id})
+
+    Train.findByIdAndDelete(id,{
+        name : req.body.name,
+        from : req.body.from,
+        to : req.body.to
+    })
+        .then(result => {
+            res.status(200).json({
+                wiadomosc: "usuniecie danych o numerze "+id,
+                info: result
+            })
+        })
+        .catch(error => {
+            res.status(500).json(error)
+    })
 })
 
 //CRUDZIK
