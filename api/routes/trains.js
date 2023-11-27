@@ -10,6 +10,11 @@ router.get("/",(req,res,next)=>{
 })
 
 router.post("/",(req,res,next)=>{
+    const train = {
+        nazwa: req.body.nazwa,
+        from : req.body.from,
+        to : req.body.to
+    }
     res.status(201).json({
         wiadomosc: "utworzenie nowego pociagu"
     })
