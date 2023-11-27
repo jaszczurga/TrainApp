@@ -1,5 +1,8 @@
 const express = require("express")
 
+//importuje model pociagu
+const Train = require("../models/train")
+
 //wyciagam Router
 const router = express.Router()
 
@@ -10,15 +13,21 @@ router.get("/",(req,res,next)=>{
 })
 
 router.post("/",(req,res,next)=>{
-    const train = {
+    const train = new Train({
         name : req.body.name,
         from : req.body.from,
         to : req.body.to
-    }
-    res.status(201).json({
-        wiadomosc: "utworzenie nowego pociagu",
-        info: train
     })
+    train.save()
+        .then(result => {
+            res.status(201).json({
+                wiadomosc: "utworzenie nowego pociagu",
+                info: result
+            })
+        })
+        .catch(error => {
+            res.status(500).json(error)
+        })
 })
 
 router.get("/:id",(req,res,next)=>{

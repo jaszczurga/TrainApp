@@ -9,6 +9,13 @@ const trainRoutes = require("./api/routes/trains")
 //instancja expressa
 const app = express()
 
+//zmienne srodowiesko
+require("dotenv").config()
+
+//polaczenie z baza danych
+const mongoose = require("mongoose")
+mongoose.connect("mongodb+srv://"+process.env.DB_USERNAME+":"+process.env.DB_PASSOWRD+"@cluster0.9tjyx6t.mongodb.net/"+process.env.DB_NAME+"?retryWrites=true&w=majority")
+
 //logger
 const morgan = require("morgan")
 app.use(morgan("combined"))

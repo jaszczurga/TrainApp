@@ -18,3 +18,4 @@ server.listen(port)
 // read -> GET /trains/100 -> info o pocaigu o nimerze 100
 // update -> PUT /trains/100 -> zmiana pocaigu o numerze 100
 // delet -> DELETE /trains/100 -> usuwa pociag o numerze 100
+
