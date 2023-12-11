@@ -4,6 +4,8 @@ const express = require("express")
 
 //routy
 const trainRoutes = require("./api/routes/trains")
+const userRoutes = require("./api/routes/users")
+
 
 
 //instancja expressa
@@ -25,6 +27,7 @@ const bodyParser = require("body-parser")
 app.use(bodyParser.json())
 
 app.use("/trains",trainRoutes)
+app.use("/users",userRoutes)
 app.use((req,res,next)=>{
     res.status(404).json({wiadomosc:"Wszystko smiga"})
 })
