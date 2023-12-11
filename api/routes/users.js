@@ -1,5 +1,6 @@
 const express = require("express")
 const bcrypt = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 //importuje model pociagu
 const User = require("../models/user")
