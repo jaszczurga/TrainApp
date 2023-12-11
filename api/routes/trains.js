@@ -6,6 +6,10 @@ const Train = require("../models/trains")
 //wyciagam Router
 const router = express.Router()
 
+
+// zabezpieczenie routów
+const checkAuth = require("../middleware/checkoutAuth")
+
 router.get("/",(req,res,next)=>{
     Train.find()
         .then(result => {
@@ -20,7 +24,7 @@ router.get("/",(req,res,next)=>{
 })
 
 //zrobimy wlasnego middleware
-router.post("/",(req,res,next)=>{
+router.post("/",checkAuth,(req,res,next)=>{
     const train = new Train({
         name : req.body.name,
         from : req.body.from,
