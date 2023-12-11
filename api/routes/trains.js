@@ -22,8 +22,8 @@ router.post("/",checkAuth,trainController.train_create_train)
 
 router.get("/:id",trainController.train_get_by_id)
 
-router.put("/:id",trainController.train_update_by_id)
-router.delete("/:id",trainController.train_delete_by_id)
+router.put("/:id",checkAuth,trainController.train_update_by_id)
+router.delete("/:id",checkAuth,trainController.train_delete_by_id)
 
 //CRUDZIK
 // create -> POST /trains -> utworzenie pociagu nowego
