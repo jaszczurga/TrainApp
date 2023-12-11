@@ -28,11 +28,11 @@ router.post("/login", (req, res, next) => {
     User.findOne({username: req.body.username})
         .then(user => {
             if(!user)
-                return res.status(404).json({wiadomosc: "Nie ma takiego username"})
+                return res.status(403).json({wiadomosc: "Błąd autoryzacji"})
             // wiem że jest user to porównuję hasła
             bcrypt.compare(req.body.password, user.password).then((result) => {
                 if(!result)
-                    return res.status(404).json({wiadomosc: "Złe hasło"})
+                    return res.status(403).json({wiadomosc: "Błąd autoryzacji"})
                 // zalogowano
                 return res.status(200).json({wiadomosc: "Zalogowano użytkownika"})
             });
