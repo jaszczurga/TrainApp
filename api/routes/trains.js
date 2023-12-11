@@ -1,7 +1,9 @@
 const express = require("express")
 
-//importuje model pociagu
-const Train = require("../models/trains")
+
+//przerzucam model do kontrolera
+// //importuje model pociagu
+// const Train = require("../models/trains")
 
 //wyciagam Router
 const router = express.Router()
@@ -10,89 +12,18 @@ const router = express.Router()
 // zabezpieczenie routów
 const checkAuth = require("../middleware/checkoutAuth")
 
-router.get("/",(req,res,next)=>{
-    Train.find()
-        .then(result => {
-            res.status(200).json({
-                wiadomosc: "lista wszystkich pociagow",
-                info: result
-            })
-        })
-        .catch(error => {
-            res.status(500).json(error)
-        })
-})
+//kontroler
+const trainController = require("../controllers/train")
+
+router.get("/",trainController.train_get_all)
 
 //zrobimy wlasnego middleware
-router.post("/",checkAuth,(req,res,next)=>{
-    const train = new Train({
-        name : req.body.name,
-        from : req.body.from,
-        to : req.body.to
-    })
-    train.save()
-        .then(result => {
-            res.status(201).json({
-                wiadomosc: "utworzenie nowego pociagu",
-                info: result
-            })
-        })
-        .catch(error => {
-            res.status(500).json(error)
-        })
-})
+router.post("/",checkAuth,trainController.train_create_train)
 
-router.get("/:id",(req,res,next)=>{
-    const id = req.params.id
+router.get("/:id",trainController.train_get_by_id)
 
-    Train.findById(id)
-        .then(result => {
-            res.status(200).json({
-                wiadomosc: "szczegoly o numerze "+id,
-                info: result
-            })
-        })
-        .catch(error => {
-            res.status(500).json(error)
-        })
-})
-
-router.put("/:id",(req,res,next)=>{
-    const id = req.params.id
-
-    Train.findByIdAndUpdate(id,{
-        name : req.body.name,
-        from : req.body.from,
-        to : req.body.to
-    })
-        .then(result => {
-            res.status(200).json({
-                wiadomosc: "zmiana danych o numerze "+id,
-                info: result
-            })
-        })
-        .catch(error => {
-            res.status(500).json(error)
-        })
-})
-router.delete("/:id",(req,res,next)=>{
-    const id = req.params.id
-
-    Train.findByIdAndDelete(id,{
-        name : req.body.name,
-        from : req.body.from,
-        to : req.body.to
-    })
-        .then(result => {
-            res.status(200).json({
-                wiadomosc: "usuniecie danych o numerze "+id,
-                info: result
-            })
-        })
-        .catch(error => {
-            res.status(500).json(error)
-    })
-})
+router.put("/:id",trainController.train_update_by_id)
+router.delete("/:id",trainController.train_delete_by_id)
 
 //CRUDZIK
 // create -> POST /trains -> utworzenie pociagu nowego
