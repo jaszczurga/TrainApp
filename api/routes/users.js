@@ -34,8 +34,13 @@ router.post("/login", (req, res, next) => {
             bcrypt.compare(req.body.password, user.password).then((result) => {
                 if(!result)
                     return res.status(403).json({wiadomosc: "Błąd autoryzacji"})
-                // zalogowano
-                return res.status(200).json({wiadomosc: "Zalogowano użytkownika"})
+                // zalogowano więc generuję token
+                const token = jwt.sign(
+                    {user: user.username},
+                    process.env.JWT_KEY,
+                    {expiresIn: "1h"}
+                )
+                return res.status(200).json(token)
             });
 
         })
