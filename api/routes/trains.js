@@ -19,6 +19,7 @@ router.get("/",(req,res,next)=>{
         })
 })
 
+//zrobimy wlasnego middleware
 router.post("/",(req,res,next)=>{
     const train = new Train({
         name : req.body.name,
